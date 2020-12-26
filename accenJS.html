@@ -1,0 +1,229 @@
+<!--
+
+<html>
+    <body>
+        Enter word/sentence to check for palindrome:
+        <input type="text" name="palin" id="palin"/>
+        <br>
+        <input type="button" name="palinbtn" value="Check Palindrome" onClick="check()"/>
+        
+        <script type="text/javascript">
+        function check()
+        {
+            var f=0;
+            var str=document.getElementById("palin").value;   
+            var s1=str.replace(/ /g,'');
+            s1=s1.toLowerCase();
+            for(var i=0,j=s1.length-1;i<=j;i++,j--)
+            {
+                if(s1.charAt(i)!=s1.charAt(j))
+                {
+                    f=1;
+                    break;
+                }
+            }
+            if(f==1)
+                alert("The entry is not a palindrome."+s1);
+            else
+                alert("The entry is a palindrome."+s1);
+			return false;
+        }   
+        </script>
+        
+    </body>
+</html>
+
+-->
+
+<!--
+
+<html>
+    <head>
+        <style>
+            body
+            {
+                background-color:#FFAACC;
+            }
+            h1{
+                color:#770080;
+                font-family:cursive;
+                text-align:center;
+            }
+            #result{
+                font-style:bold;
+                color:#770080;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h1>DAC BANK - AVAIL LOAN</h1>
+        <br>
+		<center>
+        <form name="MyForm" noValidate=false>
+        <table>
+            <tr>
+                <td>Customer Name</td>
+                <td><input type="text" name="customerName" id="customerName" required/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><textarea name="customerAddress" id="customerAddress" rows=5 columns=20></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="radio" name="gender" value="Male"/> <input type="radio" name="gender" value="Female"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input name="customerEmail" type="email" id="customerEmail"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="tel" pattern="[7-9]{1}[0-9]{9}" name="customerMobileNumber" id="customerMobileNumber"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="date" name="dob" id="dob"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><datalist id="loan">
+                    <option value="Vehicle"></option>
+                    <option value="Home"></option>
+                    <option value="Education"></option>
+                </datalist><input list="loan" name="loanType"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="text" placeholder="Enter the Amount" required name="loanAmount" id="loanAmount"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="number" name="loanTenure" id="loanTenure" min=1 max=5/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="submit" value="Avail Loan" onClick="display()"/></td>
+                <td><input type="reset" name="reset" value="Reset"/></td>
+            </tr>
+        </table>
+        </form>
+        <div id="result"></div>
+        </center>
+        <script>
+            function display()
+            {
+                var name=document.getElementById("customerName").value;
+                var amt=document.getElementById("loanAmount").value;
+                
+                document.getElementById("result").innerHTML="Thank you "+name+". Your Loan Amount is "+amt;
+            }
+        </script>
+    </body>
+</html>
+
+-->
+
+<html>
+    <head>
+        <style>
+            body
+            {
+                background-color: #99FFFF;
+            }
+            h1{
+                font-style:italic;
+                font-weight: bold;
+                text-align: center;
+                color:#B03060;
+            }
+            table{
+                margin-left:35%;
+                border-style:solid;
+                border-width:5px;
+                padding:10px;
+                border-collapse: collapse;
+                
+            }
+            table td{
+                border-style:solid;
+                border-width:30%;
+            }
+            
+            #submit
+            {
+                margin-left:45%;
+            }
+            #discount{
+                text-align:center;
+                font-weight:bold;
+                font-size: 25px;
+            }
+            #result{
+                text-align: center;
+                font-weight: bold;
+                font-style: italic;
+                color:#FF0000;
+                font-size: 40px;
+            }
+        </style>   
+ <script type="text/javascript">
+            function dcount()
+            {
+                var s = document.getElementById("season").value;
+                var p = document.getElementById("price").value;
+                var r;
+                if(s=="summer")
+                {
+                    document.getElementById("discount").innerHTML="The discount is 10%";
+                    r=p-p*0.1;
+                }
+                else if(s=="newyear")
+                {
+                    document.getElementById("discount").innerHTML="The discount is 5%";
+                    r=p-p*0.05;
+                }
+                else
+                {
+                    document.getElementById("discount").innerHTML="The discount is 15%";
+                    r=p-p*0.15;
+                }
+                document.getElementById("result").innerHTML="The discounted price : Rs"+r;
+            }
+        </script>  		
+    </head>
+    <body>
+        <h1>DISCOUNT PRICE</h1>
+        <br>
+        
+        <table>
+            <tr>
+                <td>Product Name</td>
+                <td><input type="text" name="name" required pattern="[A-Za-z ]{1,}"/></td>
+            </tr>
+            <tr>
+                <td>Product Price</td>
+                <td><input type="number" name="price" id="price" required min=15001/></td>
+            </tr>
+            <tr>
+                <td>Season</td>
+                <td><select name="season" id="season">
+                    <option value="summer">SUMMER SALE</option>
+                    <option value="newyear">NEW YEAR SALE</option>
+                    <option value="clearance">CLEARANCE SALE</option>
+                </select></td>
+            </tr>
+        </table>
+        <br>
+        <input type="button" name="submit" value="GET DISCOUNT PRICE" id="submit" onClick="dcount()"/>
+        <br>
+        <div id="discount">
+            
+        </div>
+        <br>
+        <div id="result">
+            
+        </div>
+             
+    </body>
+</html>
